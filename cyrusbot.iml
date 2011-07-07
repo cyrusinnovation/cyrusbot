@@ -7,6 +7,18 @@
     </content>
     <orderEntry type="jdk" jdkName="Ruby 1.9.2" jdkType="RUBY_SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" scope="PROVIDED" name="oauth (v0.4.5, Ruby 1.9.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="twitter (v1.6.0, Ruby 1.9.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rack (v1.2.3, Ruby 1.9.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="simple_oauth (v0.1.5, Ruby 1.9.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="multi_json (v1.0.3, Ruby 1.9.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="multi_xml (v0.2.2, Ruby 1.9.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="faraday (v0.6.1, Ruby 1.9.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="faraday_middleware (v0.6.5, Ruby 1.9.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="multipart-post (v1.1.2, Ruby 1.9.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="bundler (v1.0.15, Ruby 1.9.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="addressable (v2.2.6, Ruby 1.9.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="hashie (v1.0.0, Ruby 1.9.2) [gem]" level="application" />
   </component>
 </module>
 
