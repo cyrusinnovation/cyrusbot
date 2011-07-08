@@ -24,6 +24,13 @@ class Cyrusbot
     end
   #  puts @client.rate_limit_status.remaining_hits.to_s
   end
+  
+  def autofollow_followers
+    ids_to_befriend = @client.follower_ids.ids - @client.friend_ids.ids
+    ids_to_befriend.each do |id|
+      @client.follow id unless @client.friend_ids(id).ids.length >= 1000
+    end
+  end
 
   def self.paginate_and_send message, client
     intended_message = "#{message.sender_screen_name}: #{message.text}"
