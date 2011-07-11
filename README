@@ -2,4 +2,7 @@ A Twitter bot that tweets direct messages sent to it.
 
 Twitter allows you to use its API 350 times per hour.
 
-The account keyed to this is cyrusbot/bu8hw1ck#
+The Twitter account this bot uses is cyrusbot/bu8hw1ck#
+
+Add the following line to crontab to run this bot every two minutes:
+*/2 *    * * *   web     cd /home/web/cyrusbot && ruby src/cyrusbot_runner.rb
