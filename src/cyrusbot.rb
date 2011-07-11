@@ -46,20 +46,28 @@ class Cyrusbot
   def self.split_message_into_two_parts(message)
     words = message.text.split
     if words.length == 1
-      extra_characters = "#{message.sender_screen_name}:  (1/2)"
-      slice_point = 140 - extra_characters.length
-      first_part = message.text[0...slice_point]
-      second_part = message.text[slice_point...message.text.length]
-      @message_parts = create_two_part_message(message.sender_screen_name, first_part, second_part)
+      split_message_at_maximum_length(message)
     else
-      words.length.downto(1) do |slice_point|
-        first_part = words[0...slice_point].join(" ")
-        second_part = words[slice_point...words.length].join(" ")
-        @message_parts = create_two_part_message(message.sender_screen_name, first_part, second_part)
-        break if @message_parts[0].length <= 140
-      end
+      split_message_at_word_boundary(message.sender_screen_name, words)
     end
-    @message_parts
+  end
+
+  private
+  def self.split_message_at_maximum_length(message)
+    extra_characters = "#{message.sender_screen_name}:  (1/2)"
+    slice_point = 140 - extra_characters.length
+    first_part = message.text[0...slice_point]
+    second_part = message.text[slice_point...message.text.length]
+    create_two_part_message(message.sender_screen_name, first_part, second_part)
+  end
+
+  def self.split_message_at_word_boundary(sender_screen_name, words)
+    words.length.downto(1) do |slice_point|
+      first_part = words[0...slice_point].join(" ")
+      second_part = words[slice_point...words.length].join(" ")
+      message_parts = create_two_part_message(sender_screen_name, first_part, second_part)
+      return message_parts if message_parts[0].length <= 140
+    end
   end
 
   def self.create_two_part_message(sender, first_part, second_part)
