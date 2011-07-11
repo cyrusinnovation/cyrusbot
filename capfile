@@ -1,0 +1,33 @@
+# This script is used to deploy cyrusbot
+
+#################################################################
+# Constants
+#################################################################
+
+# This is used to ensure a password is not required when running a command in sudo
+default_run_options[:pty] = true
+
+DEFAULT_USER = "web"
+set :user, DEFAULT_USER
+set :base_dir, "/home/#{DEFAULT_USER}"
+
+#################################################################
+# These two 'tasks' set the production and staging ip addresses.
+#################################################################
+
+task :production do
+  role :server, "209.20.81.48"
+end
+
+task :staging do
+  role :server, "209.20.76.186"
+end
+
+##################################################################
+# These tasks are the ones that should be used directly.
+##################################################################
+
+task :update_cyrusbot do
+  sudo "rm -rf #{base_dir}/cyrusbot"
+  upload ".", "#{base_dir}/cyrusbot"
+end
